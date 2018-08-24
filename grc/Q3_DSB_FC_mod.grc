@@ -642,7 +642,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(640, 384)</value>
+      <value>(552, 384)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -693,7 +693,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(816, 396)</value>
+      <value>(864, 396)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1035,7 +1035,7 @@
     </param>
     <param>
       <key>average</key>
-      <value>0.05</value>
+      <value>0.2</value>
     </param>
     <param>
       <key>axislabels</key>

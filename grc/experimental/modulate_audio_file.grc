@@ -493,7 +493,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/modulated_signal.dat</value>
+      <value>/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/modulated_single_noisy_room.dat</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -689,7 +689,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/example.wav</value>
+      <value>/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/example3_noisy_room.wav</value>
     </param>
     <param>
       <key>_coordinate</key>

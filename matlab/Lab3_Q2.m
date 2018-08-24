@@ -35,7 +35,7 @@ message = rMessage - qMessage;
 carrier = rCarrier - qCarrier;
 
 % DSB-SC:
-rModulated_signal = rMessage .* rCarrier;
+rModulated_signal = rMessage.* rCarrier;
 qModulated_signal = qMessage .* qCarrier;
 modulated_signal = rModulated_signal + qModulated_signal;
 
