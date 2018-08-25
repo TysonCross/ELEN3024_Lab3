@@ -3,7 +3,7 @@
 % Jason Parry 1046955
 % Rashaad Cassim 1099797
 
-clc; clear all;  %delete(get(0,'Children'));
+clc; clear all;  delete(get(0,'Children'));
 interactive = 0;
 export_on = 0;
 
@@ -17,10 +17,10 @@ f_e = f_m;                                  %  envelope frequency in Hz
 T_m = 1/f_m;                                %  message period in seconds
 T_c = 1/f_c;                                %  carrier period in seconds
 T_e = T_m;                                  %  envelope period in seconds
-plot_length = 3*T_m;                        %  length of plot (x-axis)
+plot_length = 4*T_m;                        %  length of plot (x-axis)
 
 % output message sampling
-mult = 2*800;                               %  oversampling
+mult = 10*800;                               %  oversampling
 f_s = mult*f_m;                             %  sample / second (sample freq)
 dt = 1.0/f_s;                               %  seconds / sample (time-step)
 t = 0:dt:plot_length;                       %  time range
@@ -43,7 +43,7 @@ LPF = design(LPF_stage);
 % Demodulation
 mixed_signal = modulated_signal .* carrier;
 filtered_signal = filter(LPF,mixed_signal);
-demodulated_signal = 2*filtered_signal - 1;  %% remove DC offset: is (A_c/A_m) - (1/A_m)
+demodulated_signal = 2*filtered_signal - 1 ;  %% remove DC offset: is (A_c/A_m) - (1/A_m)
 
 % Envelope:
 envelope1 = (1 + message);

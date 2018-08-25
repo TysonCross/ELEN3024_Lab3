@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Fri Aug 24 12:50:12 2018
+# Generated: Sun Aug 26 02:18:49 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -60,7 +60,6 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         self.samp_rate = samp_rate = 44000
         self.resamp_factor = resamp_factor = 4
-        self.gain = gain = 1.1
         self.filter_width = filter_width = 50
         self.filter_frequency = filter_frequency = 1.05e3
         self.dc_block_length = dc_block_length = 32
@@ -169,12 +168,8 @@ class top_block(gr.top_block, Qt.QWidget):
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_0_win)
         self.low_pass_filter_0 = filter.fir_filter_fff(1, firdes.low_pass(
         	1, samp_rate, filter_frequency, filter_width, firdes.WIN_HAMMING, 6.76))
-        self._gain_range = Range(0, 10, .1, 1.1, 200)
-        self._gain_win = RangeWidget(self._gain_range, self.set_gain, 'Gain', "counter_slider", float)
-        self.top_grid_layout.addWidget(self._gain_win, 1,4,1,1)
         self.dc_blocker_xx_0 = filter.dc_blocker_ff(dc_block_length, True)
         self.blocks_throttle_0 = blocks.throttle(gr.sizeof_gr_complex*1, samp_rate,True)
-        self.blocks_multiply_const_vxx_0_0 = blocks.multiply_const_vff((2, ))
         self.blocks_multiply_const_vxx_0 = blocks.multiply_const_vff((2, ))
         self.blocks_file_source_0 = blocks.file_source(gr.sizeof_gr_complex*1, '/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/modulated_single_tone_signal.dat', True)
         self.blocks_complex_to_mag_0 = blocks.complex_to_mag(1)
@@ -184,8 +179,7 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.blocks_complex_to_mag_0, 0), (self.low_pass_filter_0, 0))    
         self.connect((self.blocks_file_source_0, 0), (self.blocks_throttle_0, 0))    
-        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.blocks_multiply_const_vxx_0_0, 0))    
-        self.connect((self.blocks_multiply_const_vxx_0_0, 0), (self.dc_blocker_xx_0, 0))    
+        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.dc_blocker_xx_0, 0))    
         self.connect((self.blocks_throttle_0, 0), (self.blocks_complex_to_mag_0, 0))    
         self.connect((self.dc_blocker_xx_0, 0), (self.qtgui_freq_sink_x_0_0, 0))    
         self.connect((self.dc_blocker_xx_0, 0), (self.qtgui_time_sink_x_0_0, 0))    
@@ -211,12 +205,6 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_resamp_factor(self, resamp_factor):
         self.resamp_factor = resamp_factor
-
-    def get_gain(self):
-        return self.gain
-
-    def set_gain(self, gain):
-        self.gain = gain
 
     def get_filter_width(self):
         return self.filter_width
