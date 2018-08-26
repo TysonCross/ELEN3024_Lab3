@@ -5,11 +5,11 @@
 
 clc; clear all;  %delete(get(0,'Children'));
 interactive = 0;
-export_on = 0;
+export_on = 1;
 
 %% Constants
 A_c = 1.0;
-A_m = 1;
+A_m = 0.7071;                               % 0.7071 to producy unity gain output
 f_m = 1e3;                                  %  message frequency in Hz
 f_c = 2e6;                                  %  carrier frequency in Hz
 f_e = f_m;                                  %  envelope frequency in Hz
@@ -23,6 +23,7 @@ mult = 10*1000;                             %  oversampling
 f_s = mult*f_m;                             %  sample / second (sample freq)
 dt = 1.0/f_s;                               %  seconds / sample (time-step)
 t = 0:dt:plot_length;                       %  time range
+tm = t*1e3;
 N = numel(t);                               %  number of samples
 f = linspace(-f_s/2,f_s/2,N);               %  frequency range
 
@@ -35,7 +36,6 @@ carrier_Q = A_c * sin(2 * pi * f_c * t);
 message = message_I - 1i*message_Q;
 carrier = carrier_I - 1i*carrier_Q;
 
-
 % % DSB-SC:
 modulated_signal_I = (1 + message_I) .* carrier_I;
 modulated_signal_Q = (1 + message_Q) .* carrier_Q;
@@ -44,10 +44,10 @@ modulated_signal = modulated_signal_I + 1i.*modulated_signal_Q;
 
 % Demodulation
 magnitude_signal = abs(modulated_signal);
-% compensate fot MATLAB comple signal magnitude:
-filtered_signal = (1/sqrt(2)).*lowpass(magnitude_signal,0.9,f_m)-0.2;
-% demodulated_signal = 2*(1/sqrt(2).*filtered_signal) - 1.5 ;
-demodulated_signal = 2*filtered_signal - 1 ;
+% compensate for MATLAB complex signal magnitude:
+% filtered_signal = (1/sqrt(2)).*lowpass(magnitude_signal,1,f_m)-0.2;
+filtered_signal = lowpass(magnitude_signal,1,f_m);
+demodulated_signal = 2*filtered_signal - 2 ;
 
 % Envelope:
 envelope1 = sqrt(message_I.^2 + message_Q.^2);

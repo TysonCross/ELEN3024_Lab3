@@ -3,9 +3,9 @@
 % Jason Parry 1046955
 % Rashaad Cassim 1099797
 
-clc; clear all;  %delete(get(0,'Children'));
+clc; clear all;  delete(get(0,'Children'));
 interactive = 0;
-export_on = 0;
+export_on = 1;
 
 
 %% Constants
@@ -24,6 +24,7 @@ mult = 10*800;                               %  oversampling
 f_s = mult*f_m;                             %  sample / second (sample freq)
 dt = 1.0/f_s;                               %  seconds / sample (time-step)
 t = 0:dt:plot_length;                       %  time range
+tm = t*1e3;
 N = numel(t);                               %  number of samples
 f = linspace(-f_s/2,f_s/2,N);               %  frequency range
 
@@ -34,15 +35,10 @@ carrier = A_c * cos(2 * pi * f_c * t);
 % DSB-SC modulation
 modulated_signal = (1 + message) .* carrier;
 
-% LPF filter design
-% filterOrder = 50;
-cutoffFreq = f_m;
-% LPF_stage = fdesign.lowpass('N,F3dB', filterOrder, cutoffFreq, 20*f_m);
-% LPF = design(LPF_stage);
 
 % Demodulation
+cutoffFreq = f_m;
 mixed_signal = modulated_signal .* carrier;
-% filtered_signal = filter(LPF,mixed_signal);
 filtered_signal = lowpass(mixed_signal,0.9,f_m);
 demodulated_signal = 2*filtered_signal - 1 ;  %% remove DC offset: is (A_c/A_m) - (1/A_m)
 
@@ -60,3 +56,4 @@ f_output = [-f_c-f_m -f_c+f_m 0 f_c-f_m f_c+f_m];
 
 %% Plot results
 Plot_Q1;
+
