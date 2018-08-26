@@ -3,7 +3,7 @@
 % Jason Parry 1046955
 % Rashaad Cassim 1099797
 
-clc; clear all;  delete(get(0,'Children'));
+clc; clear all;  %delete(get(0,'Children'));
 interactive = 0;
 export_on = 0;
 
@@ -35,14 +35,15 @@ carrier = A_c * cos(2 * pi * f_c * t);
 modulated_signal = (1 + message) .* carrier;
 
 % LPF filter design
-filterOrder = 50;
+% filterOrder = 50;
 cutoffFreq = f_m;
-LPF_stage = fdesign.lowpass('N,F3dB', filterOrder, cutoffFreq, 20*f_m);
-LPF = design(LPF_stage);
+% LPF_stage = fdesign.lowpass('N,F3dB', filterOrder, cutoffFreq, 20*f_m);
+% LPF = design(LPF_stage);
 
 % Demodulation
 mixed_signal = modulated_signal .* carrier;
-filtered_signal = filter(LPF,mixed_signal);
+% filtered_signal = filter(LPF,mixed_signal);
+filtered_signal = lowpass(mixed_signal,0.9,f_m);
 demodulated_signal = 2*filtered_signal - 1 ;  %% remove DC offset: is (A_c/A_m) - (1/A_m)
 
 % Envelope:
