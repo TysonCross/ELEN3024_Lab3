@@ -1,12 +1,11 @@
-% ELEN3024 Lab 3 - Exercise 2b
+% ELEN3024 Lab 3 - Exercise 1b
 % Tyson Cross 1239448
 % Jason Parry 1046955
 % Rashaad Cassim 1099797
 
 clc; clear all;  delete(get(0,'Children'));
 interactive = 0;
-export_on = 1;
-
+export_on = 0;
 
 %% Constants
 A_c = 1.0;
