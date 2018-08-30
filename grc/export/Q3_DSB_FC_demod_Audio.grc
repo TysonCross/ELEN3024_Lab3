@@ -82,14 +82,10 @@
     </param>
   </block>
   <block>
-    <key>variable_qtgui_range</key>
+    <key>variable</key>
     <param>
       <key>comment</key>
       <value></value>
-    </param>
-    <param>
-      <key>value</key>
-      <value>32</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -97,11 +93,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(248, 76)</value>
-    </param>
-    <param>
-      <key>gui_hint</key>
-      <value>1, 5, 1, 1</value>
+      <value>(368, 8)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -109,39 +101,11 @@
     </param>
     <param>
       <key>id</key>
-      <value>dc_block_length</value>
+      <value>carrier_frequency</value>
     </param>
     <param>
-      <key>label</key>
-      <value>DC block width</value>
-    </param>
-    <param>
-      <key>min_len</key>
-      <value>200</value>
-    </param>
-    <param>
-      <key>orient</key>
-      <value>Qt.Horizontal</value>
-    </param>
-    <param>
-      <key>start</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>step</key>
-      <value>2</value>
-    </param>
-    <param>
-      <key>stop</key>
-      <value>1000</value>
-    </param>
-    <param>
-      <key>rangeType</key>
-      <value>int</value>
-    </param>
-    <param>
-      <key>widget</key>
-      <value>counter_slider</value>
+      <key>value</key>
+      <value>2e6</value>
     </param>
   </block>
   <block>
@@ -152,7 +116,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>1.05e3</value>
+      <value>2.4e3</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -160,7 +124,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 76)</value>
+      <value>(136, 76)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -192,11 +156,11 @@
     </param>
     <param>
       <key>step</key>
-      <value>10</value>
+      <value>100</value>
     </param>
     <param>
       <key>stop</key>
-      <value>1e6</value>
+      <value>1e5</value>
     </param>
     <param>
       <key>rangeType</key>
@@ -208,14 +172,14 @@
     </param>
   </block>
   <block>
-    <key>variable_qtgui_range</key>
+    <key>variable_qtgui_chooser</key>
     <param>
       <key>comment</key>
       <value></value>
     </param>
     <param>
       <key>value</key>
-      <value>50</value>
+      <value>0</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -223,7 +187,106 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(136, 76)</value>
+      <value>(16, 72)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value>1,1,1,1</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>filter_type</value>
+    </param>
+    <param>
+      <key>label0</key>
+      <value>Hamming</value>
+    </param>
+    <param>
+      <key>label1</key>
+      <value>Hann</value>
+    </param>
+    <param>
+      <key>label2</key>
+      <value>Blackman</value>
+    </param>
+    <param>
+      <key>label3</key>
+      <value>Rectangular</value>
+    </param>
+    <param>
+      <key>label4</key>
+      <value>Kaiser</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value>Filter type</value>
+    </param>
+    <param>
+      <key>labels</key>
+      <value>[]</value>
+    </param>
+    <param>
+      <key>num_opts</key>
+      <value>5</value>
+    </param>
+    <param>
+      <key>option0</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>option1</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>option2</key>
+      <value>2</value>
+    </param>
+    <param>
+      <key>option3</key>
+      <value>3</value>
+    </param>
+    <param>
+      <key>option4</key>
+      <value>4</value>
+    </param>
+    <param>
+      <key>options</key>
+      <value>[0, 1, 2]</value>
+    </param>
+    <param>
+      <key>orient</key>
+      <value>Qt.QVBoxLayout</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>int</value>
+    </param>
+    <param>
+      <key>widget</key>
+      <value>combo_box</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_range</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>400</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(264, 76)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -294,7 +357,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>4</value>
+      <value>1</value>
     </param>
   </block>
   <block>
@@ -325,7 +388,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_add_const_vxx</key>
+    <key>audio_sink</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -335,20 +398,20 @@
       <value></value>
     </param>
     <param>
-      <key>const</key>
-      <value>-1</value>
-    </param>
-    <param>
       <key>affinity</key>
       <value></value>
     </param>
     <param>
+      <key>device_name</key>
+      <value></value>
+    </param>
+    <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 428)</value>
+      <value>(1176, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -356,23 +419,19 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_add_const_vxx_0</value>
+      <value>audio_sink_0</value>
     </param>
     <param>
-      <key>type</key>
-      <value>float</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
+      <key>num_inputs</key>
       <value>1</value>
+    </param>
+    <param>
+      <key>ok_to_block</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
     </param>
   </block>
   <block>
@@ -395,7 +454,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 336)</value>
+      <value>(256, 376)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -412,61 +471,6 @@
     <param>
       <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_file_source</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>file</key>
-      <value>/Users/Tyson/Documents/Academic/ELEN3024/Labs/Lab3/audio/modulated_single_tone_signal.dat</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(24, 256)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_file_source_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>repeat</key>
-      <value>True</value>
     </param>
     <param>
       <key>vlen</key>
@@ -497,7 +501,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 332)</value>
+      <value>(656, 372)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -505,7 +509,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_multiply_const_vxx_0</value>
+      <value>blocks_multiply_const_vxx_0_0</value>
     </param>
     <param>
       <key>type</key>
@@ -518,61 +522,6 @@
     <param>
       <key>minoutbuf</key>
       <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_throttle</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(232, 332)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_throttle_0</value>
-    </param>
-    <param>
-      <key>ignoretag</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>samples_per_second</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
     </param>
     <param>
       <key>vlen</key>
@@ -599,7 +548,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(920, 328)</value>
+      <value>(848, 368)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -611,7 +560,7 @@
     </param>
     <param>
       <key>length</key>
-      <value>dc_block_length</value>
+      <value>32</value>
     </param>
     <param>
       <key>long_form</key>
@@ -666,7 +615,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(552, 292)</value>
+      <value>(448, 332)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -678,7 +627,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>low_pass_filter_0</value>
+      <value>low_pass_filter_0_0</value>
     </param>
     <param>
       <key>interp</key>
@@ -702,7 +651,7 @@
     </param>
     <param>
       <key>win</key>
-      <value>firdes.WIN_HAMMING</value>
+      <value>filter_type</value>
     </param>
   </block>
   <block>
@@ -713,7 +662,7 @@
     </param>
     <param>
       <key>average</key>
-      <value>0.05</value>
+      <value>1.0</value>
     </param>
     <param>
       <key>axislabels</key>
@@ -721,7 +670,7 @@
     </param>
     <param>
       <key>bw</key>
-      <value>samp_rate</value>
+      <value>samp_rate/2</value>
     </param>
     <param>
       <key>alias</key>
@@ -753,11 +702,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1144, 352)</value>
+      <value>(1176, 240)</value>
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>4,1,2,5</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -769,7 +718,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>qtgui_freq_sink_x_0_0</value>
+      <value>qtgui_freq_sink_x_0_0_0</value>
     </param>
     <param>
       <key>legend</key>
@@ -945,7 +894,7 @@
     </param>
     <param>
       <key>name</key>
-      <value>"Reconstructed Signal"</value>
+      <value>"Reconstructed Signal Frequency"</value>
     </param>
     <param>
       <key>nconnections</key>
@@ -1040,11 +989,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1144, 256)</value>
+      <value>(1176, 136)</value>
     </param>
     <param>
       <key>gui_hint</key>
-      <value></value>
+      <value>2,1,2,5</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2551,7 +2500,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(24, 320)</value>
+      <value>(24, 360)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2559,7 +2508,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>uhd_usrp_source_0</value>
+      <value>uhd_usrp_source_1</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -2707,44 +2656,26 @@
     </param>
   </block>
   <connection>
-    <source_block_id>blocks_add_const_vxx_0</source_block_id>
-    <sink_block_id>dc_blocker_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
     <source_block_id>blocks_complex_to_mag_0</source_block_id>
-    <sink_block_id>low_pass_filter_0</sink_block_id>
+    <sink_block_id>low_pass_filter_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_file_source_0</source_block_id>
-    <sink_block_id>blocks_throttle_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
-    <sink_block_id>blocks_add_const_vxx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_multiply_const_vxx_0</source_block_id>
+    <source_block_id>blocks_multiply_const_vxx_0_0</source_block_id>
     <sink_block_id>dc_blocker_xx_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_throttle_0</source_block_id>
-    <sink_block_id>blocks_complex_to_mag_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>dc_blocker_xx_0</source_block_id>
-    <sink_block_id>qtgui_freq_sink_x_0_0</sink_block_id>
+    <sink_block_id>audio_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>dc_blocker_xx_0</source_block_id>
+    <sink_block_id>qtgui_freq_sink_x_0_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2755,14 +2686,14 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>low_pass_filter_0</source_block_id>
-    <sink_block_id>blocks_multiply_const_vxx_0</sink_block_id>
+    <source_block_id>low_pass_filter_0_0</source_block_id>
+    <sink_block_id>blocks_multiply_const_vxx_0_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>uhd_usrp_source_0</source_block_id>
-    <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_block_id>uhd_usrp_source_1</source_block_id>
+    <sink_block_id>blocks_complex_to_mag_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

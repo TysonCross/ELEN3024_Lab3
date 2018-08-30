@@ -9,7 +9,7 @@ export_on = 0;
 
 %% Constants
 A_c = 1.0;
-A_m = 1;                                    % 0.7071 to producy unity gain output
+A_m = 1.0;                                  %  modulation Index
 f_m = 1e3;                                  %  message frequency in Hz
 f_c = 2e6;                                  %  carrier frequency in Hz
 f_e = f_m;                                  %  envelope frequency in Hz

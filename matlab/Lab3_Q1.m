@@ -19,7 +19,7 @@ T_e = T_m;                                  %  envelope period in seconds
 plot_length = 4*T_m;                        %  length of plot (x-axis)
 
 % output message sampling
-mult = 10*800;                               %  oversampling
+mult = 10*800;                              %  oversampling
 f_s = mult*f_m;                             %  sample / second (sample freq)
 dt = 1.0/f_s;                               %  seconds / sample (time-step)
 t = 0:dt:plot_length;                       %  time range
@@ -33,7 +33,6 @@ carrier = A_c * cos(2 * pi * f_c * t);
 
 % DSB-SC modulation
 modulated_signal = (1 + message) .* carrier;
-
 
 % Demodulation
 cutoffFreq = f_m;

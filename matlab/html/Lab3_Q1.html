@@ -1,0 +1,181 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Lab3_Q1</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-08-29"><meta name="DC.source" content="Lab3_Q1.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Constants</a></li><li><a href="#3">Equations</a></li><li><a href="#4">Plot results</a></li></ul></div><pre class="codeinput"><span class="comment">% ELEN3024 Lab 3 - Exercise 1b</span>
+<span class="comment">% Tyson Cross 1239448</span>
+<span class="comment">% Jason Parry 1046955</span>
+<span class="comment">% Rashaad Cassim 1099797</span>
+
+clc; clear <span class="string">all</span>;  delete(get(0,<span class="string">'Children'</span>));
+interactive = 0;
+export_on = 0;
+</pre><h2 id="2">Constants</h2><pre class="codeinput">A_c = 1.0;
+A_m = 1.0;
+f_m = 1e3;                                  <span class="comment">%  message frequency in Hz</span>
+f_c = 2e6;                                  <span class="comment">%  carrier frequency in Hz</span>
+f_e = f_m;                                  <span class="comment">%  envelope frequency in Hz</span>
+T_m = 1/f_m;                                <span class="comment">%  message period in seconds</span>
+T_c = 1/f_c;                                <span class="comment">%  carrier period in seconds</span>
+T_e = T_m;                                  <span class="comment">%  envelope period in seconds</span>
+plot_length = 4*T_m;                        <span class="comment">%  length of plot (x-axis)</span>
+
+<span class="comment">% output message sampling</span>
+mult = 10*800;                              <span class="comment">%  oversampling</span>
+f_s = mult*f_m;                             <span class="comment">%  sample / second (sample freq)</span>
+dt = 1.0/f_s;                               <span class="comment">%  seconds / sample (time-step)</span>
+t = 0:dt:plot_length;                       <span class="comment">%  time range</span>
+tm = t*1e3;
+N = numel(t);                               <span class="comment">%  number of samples</span>
+f = linspace(-f_s/2,f_s/2,N);               <span class="comment">%  frequency range</span>
+</pre><h2 id="3">Equations</h2><pre class="codeinput">message = A_m * cos(2 * pi * f_m * t);
+carrier = A_c * cos(2 * pi * f_c * t);
+
+<span class="comment">% DSB-SC modulation</span>
+modulated_signal = (1 + message) .* carrier;
+
+
+<span class="comment">% Demodulation</span>
+cutoffFreq = f_m;
+mixed_signal = modulated_signal .* carrier;
+filtered_signal = lowpass(mixed_signal,0.9,f_m);
+demodulated_signal = 2*filtered_signal - 1 ;  <span class="comment">%% remove DC offset: is (A_c/A_m) - (1/A_m)</span>
+
+<span class="comment">% Envelope:</span>
+envelope1 = (1 + message);
+envelope2 = (-message - 1);
+
+<span class="comment">% Frequency</span>
+message_frequency = (A_m/N)  * abs(fftshift((fft(message))));
+modulated_frequency = (A_c*A_m/N)  * abs(fftshift((fft(modulated_signal))));
+demodulated_frequency =(A_m/N)  * abs(fftshift((fft(demodulated_signal))));
+f_message = [-f_m 0 f_m];
+f_output = [-f_c-f_m -f_c+f_m 0 f_c-f_m f_c+f_m];
+</pre><h2 id="4">Plot results</h2><pre class="codeinput">Plot_Q1;
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+% ELEN3024 Lab 3 - Exercise 1b
+% Tyson Cross 1239448
+% Jason Parry 1046955
+% Rashaad Cassim 1099797
+
+clc; clear all;  delete(get(0,'Children'));
+interactive = 0;
+export_on = 0;
+
+%% Constants
+A_c = 1.0;
+A_m = 1.0;
+f_m = 1e3;                                  %  message frequency in Hz
+f_c = 2e6;                                  %  carrier frequency in Hz
+f_e = f_m;                                  %  envelope frequency in Hz
+T_m = 1/f_m;                                %  message period in seconds
+T_c = 1/f_c;                                %  carrier period in seconds
+T_e = T_m;                                  %  envelope period in seconds
+plot_length = 4*T_m;                        %  length of plot (x-axis)
+
+% output message sampling
+mult = 10*800;                              %  oversampling
+f_s = mult*f_m;                             %  sample / second (sample freq)
+dt = 1.0/f_s;                               %  seconds / sample (time-step)
+t = 0:dt:plot_length;                       %  time range
+tm = t*1e3;
+N = numel(t);                               %  number of samples
+f = linspace(-f_s/2,f_s/2,N);               %  frequency range
+
+%% Equations
+message = A_m * cos(2 * pi * f_m * t);
+carrier = A_c * cos(2 * pi * f_c * t);
+
+% DSB-SC modulation
+modulated_signal = (1 + message) .* carrier;
+
+
+% Demodulation
+cutoffFreq = f_m;
+mixed_signal = modulated_signal .* carrier;
+filtered_signal = lowpass(mixed_signal,0.9,f_m);
+demodulated_signal = 2*filtered_signal - 1 ;  %% remove DC offset: is (A_c/A_m) - (1/A_m)
+
+% Envelope:
+envelope1 = (1 + message);
+envelope2 = (-message - 1);
+
+% Frequency
+message_frequency = (A_m/N)  * abs(fftshift((fft(message))));
+modulated_frequency = (A_c*A_m/N)  * abs(fftshift((fft(modulated_signal))));
+demodulated_frequency =(A_m/N)  * abs(fftshift((fft(demodulated_signal))));
+f_message = [-f_m 0 f_m];
+f_output = [-f_c-f_m -f_c+f_m 0 f_c-f_m f_c+f_m];
+
+
+%% Plot results
+Plot_Q1;
+
+
+##### SOURCE END #####
+--></body></html>
